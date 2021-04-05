@@ -51,8 +51,7 @@ function App() {
     <div className="App">
       <Header />
       <Container style={{ paddingTop: '1rem' }} maxWidth="lg">
-        <VaccineCard></VaccineCard>
-        {console.log(locations)}
+        {locations.map(state => <VaccineCard stateData = {state}></VaccineCard>)}
 
 
       </Container>
