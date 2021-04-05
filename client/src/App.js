@@ -2,23 +2,44 @@ import './App.css';
 import Header from './components/header'
 import Container from '@material-ui/core/Container'
 import VaccineCard from './components/vaccineCard';
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
 import Papa from 'papaparse';
 
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+    selectForm: {
+        width: '75%',
+        color: 'black',
+        marginBottom: '1rem',
+    },
+    menuItems:{
+      maxHeight: '500px',
+      marginTop: '20px'
+    }
+});
+
 function App() {
+  const classes = useStyles();
   const [locations, setLocations] = useState([])
+  const [currState, setCurrState] = useState('')
 
   let saveData = (result) => {
     //setLocations(result.data)
     let data = result.data
     data = updateList(data)
     setLocations(data)
+    setCurrState(data.filter(state => state.location === 'United States')[0])
   }
 
   let filterData = (data, cityName) => {
     let chosenCity = data.filter(row => row.location === cityName)
     //most recent data is the last entry in the arr
-    chosenCity = chosenCity[chosenCity.length-1]
+    chosenCity = chosenCity[chosenCity.length - 1]
     return chosenCity;
   }
 
@@ -37,21 +58,42 @@ function App() {
   let updateList = (locations) => {
     let updatedList = [];
     locations.forEach(row => {
-      if(!updatedList.some(states => states.location === row.location)){
-        let finalEntry = filterData(locations,row.location)
+      if (!updatedList.some(states => states.location === row.location)) {
+        let finalEntry = filterData(locations, row.location)
+        finalEntry.people_vaccinated = parseInt(finalEntry.people_vaccinated).toLocaleString()
+        finalEntry.people_fully_vaccinated = parseInt(finalEntry.people_fully_vaccinated).toLocaleString()
         updatedList.push(finalEntry)
       }
     })
     return updatedList;
   }
 
-  
+  const handleSelect = (e) => {
+    let value = e.target.value
+    setCurrState(locations.filter(state => state.location === value)[0])
+  }
+
+
 
   return (
     <div className="App">
       <Header />
       <Container style={{ paddingTop: '1rem' }} maxWidth="lg">
-        {locations.map(state => <VaccineCard stateData = {state}></VaccineCard>)}
+        <FormControl style={{textAlign:'center'}} size='small' variant ='outlined' className={classes.selectForm}>
+          <InputLabel id="stateSelect">Select State</InputLabel>
+          <Select
+            labelId="stateSelect"
+            id="stateSelect"
+            MenuProps={{ classes: { paper: classes.menuItems } }}
+            onChange={handleSelect}
+          >
+            {locations.map(state => <MenuItem value={state.location}>{state.location}</MenuItem>)}
+          </Select>
+
+        </FormControl>
+
+
+        <VaccineCard stateData={currState}/>
 
 
       </Container>
