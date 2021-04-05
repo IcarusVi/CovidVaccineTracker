@@ -16,7 +16,7 @@ const VaccineCard = () => {
                 <h1>Country/State</h1>
                 Should add an image of some sort
                 <p>First Dose:</p>
-                <p>Full Vaccinated: </p>
+                <p>Fully Vaccinated: </p>
             </CardContent>
         </Card>
     )
