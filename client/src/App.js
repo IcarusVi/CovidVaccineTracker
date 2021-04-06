@@ -10,30 +10,33 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Papa from 'papaparse';
 
 import { makeStyles } from '@material-ui/core/styles';
+import UnitedStatesCard from './components/unitedStatesCard';
 
 const useStyles = makeStyles({
-    selectForm: {
-        width: '75%',
-        color: 'black',
-        marginBottom: '1rem',
-    },
-    menuItems:{
-      maxHeight: '500px',
-      marginTop: '20px'
-    }
+  selectForm: {
+    width: '50%',
+    color: 'black',
+    marginLeft: '25%',
+    marginBottom: '1rem',
+  },
+  menuItems: {
+    maxHeight: '500px',
+    marginTop: '20px'
+  }
 });
 
 function App() {
   const classes = useStyles();
   const [locations, setLocations] = useState([])
   const [currState, setCurrState] = useState('')
+  const [unitedStatesData, setUnitedStatesData] = useState('')
 
   let saveData = (result) => {
     //setLocations(result.data)
     let data = result.data
     data = updateList(data)
     setLocations(data)
-    setCurrState(data.filter(state => state.location === 'United States')[0])
+    setUnitedStatesData(data.filter(state => state.location === 'United States')[0])
   }
 
   let filterData = (data, cityName) => {
@@ -77,9 +80,12 @@ function App() {
 
   return (
     <div className="App">
+      {console.log(currState)}
       <Header />
-      <Container style={{ paddingTop: '1rem' }} maxWidth="lg">
-        <FormControl style={{textAlign:'center'}} size='small' variant ='outlined' className={classes.selectForm}>
+      <Container style={{ paddingTop: '1rem' }} maxWidth="md">
+        <UnitedStatesCard stateData={unitedStatesData} />
+
+        <FormControl size='small' variant='outlined' className={classes.selectForm}>
           <InputLabel id="stateSelect">Select State</InputLabel>
           <Select
             labelId="stateSelect"
@@ -87,13 +93,20 @@ function App() {
             MenuProps={{ classes: { paper: classes.menuItems } }}
             onChange={handleSelect}
           >
-            {locations.map(state => <MenuItem value={state.location}>{state.location}</MenuItem>)}
+            {locations.map((state, i) => <MenuItem key={i} value={state.location}>{state.location}</MenuItem>)}
           </Select>
 
         </FormControl>
+        {currState !== '' ? <VaccineCard stateData={currState} /> : ''}
+
+        <div style={{textAlign:'center'}}>
+          <h2>Disclaimer</h2>
+          <p>All data is provided by <a href='https://ourworldindata.org/'>Our World in Data</a> which can be found at their <a href='https://github.com/owid/covid-19-data/tree/master/public/data/vaccinations'>GitHub Repo</a>
+          </p>
+        </div>
 
 
-        <VaccineCard stateData={currState}/>
+
 
 
       </Container>

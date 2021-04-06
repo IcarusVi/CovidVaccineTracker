@@ -1,0 +1,22 @@
+.unitedStatesCard{
+    h1{
+        text-align: center;
+        font-size: 3rem;
+    }
+    .content{
+        .row{
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            font-size: 1.5rem;
+            p{
+                margin: 0;
+            }
+            .subtitle{
+                font-size: 0.75rem;
+            }
+        }
+        margin-bottom: 20px;
+    }
+}

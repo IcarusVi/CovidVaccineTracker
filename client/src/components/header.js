@@ -4,8 +4,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 const Header = () => {
     return (
         <div>
-            <AppBar position="static">
-                <Toolbar>
+            <AppBar style={{alignItems: 'center'}}  position="static">
+                <Toolbar style={{textAlign:'center'}}>
                     <h1>Covid Vaccine Tracker</h1>
                 </Toolbar>
             </AppBar>
