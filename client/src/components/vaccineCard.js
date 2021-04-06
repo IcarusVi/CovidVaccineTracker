@@ -17,7 +17,7 @@ const VaccineCard = ({stateData}) => {
         <Card className={classes.root}>
             <CardContent>
                 <h1>{stateData.location}</h1>
-                Should add a graph maybe
+                {/* Should add a graph maybe */}
                 <p>First Dose: {stateData.people_vaccinated}</p>
                 <p>Fully Vaccinated: {stateData.people_fully_vaccinated} </p>
                 <p>Population Fully Vaccinated: {stateData.people_fully_vaccinated_per_hundred}%</p>
