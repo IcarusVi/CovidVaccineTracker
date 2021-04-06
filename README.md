@@ -1,6 +1,6 @@
 # Covid Vaccine Tracker for United States
 
-Covid Vaccine Tracker(CVT) is a React website built for the purpose of the tracking the progress of vaccinations within the United States and its territories. This website was built with React and Material UI.
+Covid Vaccine Tracker(CVT) is a React website built for the purpose of tracking the progress of vaccinations within the United States and its territories. This website was built with React and Material UI.
 
 ## Installation
 
