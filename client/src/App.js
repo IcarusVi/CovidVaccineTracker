@@ -2,7 +2,7 @@ import './App.css';
 import Header from './components/header'
 import Container from '@material-ui/core/Container'
 import VaccineCard from './components/vaccineCard';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
@@ -24,6 +24,9 @@ const useStyles = makeStyles({
   menuItems: {
     maxHeight: '500px',
     marginTop: '20px'
+  },
+  label:{
+    backgroundColor: 'white'
   }
 });
 
@@ -32,6 +35,8 @@ function App() {
   const [locations, setLocations] = useState([])
   const [currState, setCurrState] = useState('')
   const [unitedStatesData, setUnitedStatesData] = useState('')
+  const labelRef = useRef()
+  const labelWidth = labelRef.current ? labelRef.current.clientWidth : 0
 
   let saveData = (result) => {
     //setLocations(result.data)
@@ -87,13 +92,14 @@ function App() {
       <Container style={{ paddingTop: '1rem' }} maxWidth="md">
         <UnitedStatesCard stateData={unitedStatesData} />
 
-        <FormControl size='small' variant='filled' className={classes.selectForm}>
-          <InputLabel id="stateSelect">Select State</InputLabel>
+        <FormControl variant='outlined' className={classes.selectForm}>
+          <InputLabel ref={labelRef} id="stateSelect">Select State</InputLabel>
           <Select
             labelId="stateSelect"
             id="stateSelect"
             MenuProps={{ classes: { paper: classes.menuItems } }}
             onChange={handleSelect}
+            labelWidth={labelWidth}
           >
             {locations.map((state, i) => <MenuItem key={i} value={state.location}>{state.location}</MenuItem>)}
           </Select>
