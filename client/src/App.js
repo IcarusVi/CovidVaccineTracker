@@ -11,6 +11,7 @@ import Papa from 'papaparse';
 
 import { makeStyles } from '@material-ui/core/styles';
 import UnitedStatesCard from './components/unitedStatesCard';
+import Footer from './components/footer';
 
 const useStyles = makeStyles({
   selectForm: {
@@ -101,15 +102,13 @@ function App() {
 
         <div style={{textAlign:'center'}}>
           <h2>Disclaimer</h2>
-          <p>All data is provided by <a href='https://ourworldindata.org/'>Our World in Data</a> which can be found at their <a href='https://github.com/owid/covid-19-data/tree/master/public/data/vaccinations'>GitHub Repo</a>
+          <p>All data is provided by <a href='https://ourworldindata.org/'>Our World in Data</a> which can be found at their <a href='https://github.com/owid/covid-19-data/tree/master/public/data/vaccinations'>GitHub Repo</a>.
           </p>
         </div>
 
-
-
-
-
       </Container>
+
+      <Footer/>
     </div>
   );
 }

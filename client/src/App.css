@@ -28,4 +28,13 @@
 .unitedStatesCard .content .row .subtitle {
   font-size: 0.75rem;
 }
+
+.footerText {
+  text-decoration: none;
+  color: inherit;
+}
+
+.footerText:hover {
+  color: black;
+}
 /*# sourceMappingURL=App.css.map */

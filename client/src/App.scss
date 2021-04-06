@@ -20,3 +20,11 @@
         margin-bottom: 20px;
     }
 }
+
+.footerText{
+    text-decoration: none;
+    color: inherit;
+    &:hover{
+        color:black;
+    }
+}
