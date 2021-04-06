@@ -9,3 +9,7 @@ Covid Vaccine Tracker(CVT) is a React website built for the purpose of the track
 3. Run npm install.
 4. After install run npm start.
 5. Navigate to localhost:3000.
+
+## Roadmap 
+
+Rely solely on material UI, and keep external styling to a minimum.

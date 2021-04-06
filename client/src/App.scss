@@ -7,7 +7,7 @@
         .row{
             display: inline-flex;
             justify-content: center;
-            align-items: center;
+            align-items: baseline;
             width: 100%;
             font-size: 1.5rem;
             p{
@@ -17,7 +17,7 @@
                 font-size: 0.75rem;
             }
         }
-        margin-bottom: 20px;
+        margin-bottom: 3rem;
     }
 }
 
