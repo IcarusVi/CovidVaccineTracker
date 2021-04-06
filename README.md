@@ -6,10 +6,10 @@ View live site [here](#).
 
 ## Process
 
-Parsed csv data provided by [Our World in Data](https://ourworldindata.org/).
-Saved latest entries from csv to React state.
-Display chosen locations vaccine data from csv when user selects from a drop down.
-Data displayed will show amount of people who received one dose, amount of people fully vaccinated(according to manufacturer  guidelines), and percent of population fully vaccinated.
+* Parsed csv data provided by [Our World in Data](https://ourworldindata.org/).
+* Saved latest entries from csv to React state.
+* Display chosen locations vaccine data from csv when user selects from a drop down.
+* Data displayed will show amount of people who received one dose, amount of people fully vaccinated(according to manufacturer  guidelines), and percent of population fully vaccinated.
 
 ## Installation
 
