@@ -18,15 +18,19 @@
       -ms-flex-align: baseline;
           align-items: baseline;
   width: 100%;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
+  font-weight: bold;
 }
 
 .unitedStatesCard .content .row p {
   margin: 0;
+  letter-spacing: 1px;
 }
 
 .unitedStatesCard .content .row .subtitle {
   font-size: 0.75rem;
+  font-weight: normal;
+  letter-spacing: normal;
 }
 
 .footerText {
