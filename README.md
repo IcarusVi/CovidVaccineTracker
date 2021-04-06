@@ -2,6 +2,15 @@
 
 Covid Vaccine Tracker(CVT) is a React website built for the purpose of tracking the progress of vaccinations within the United States and its territories. This website was built with React and Material UI.
 
+View live site [here](#).
+
+## Process
+
+Parsed csv data provided by [Our World in Data](https://ourworldindata.org/).
+Saved latest entries from csv to React state.
+Display chosen locations vaccine data from csv when user selects from a drop down.
+Data displayed will show amount of people who received one dose, amount of people fully vaccinated(according to manufacturer  guidelines), and percent of population fully vaccinated.
+
 ## Installation
 
 1. Clone github repo
@@ -13,3 +22,4 @@ Covid Vaccine Tracker(CVT) is a React website built for the purpose of tracking 
 ## Roadmap 
 
 Rely solely on material UI, and keep external styling to a minimum.
+Possible socket implementation with live updates.
