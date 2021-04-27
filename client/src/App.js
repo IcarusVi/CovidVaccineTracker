@@ -13,6 +13,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import UnitedStatesCard from './components/unitedStatesCard';
 import Footer from './components/footer';
 import Disclaimer from './components/disclaimer';
+import TopState from './components/topState';
 
 const useStyles = makeStyles({
   selectForm: {
@@ -35,15 +36,16 @@ function App() {
   const [locations, setLocations] = useState([])
   const [currState, setCurrState] = useState('')
   const [unitedStatesData, setUnitedStatesData] = useState('')
+  const [topState, setTopState] = useState('')
   const labelRef = useRef()
   const labelWidth = labelRef.current ? labelRef.current.clientWidth : 0
 
   let saveData = (result) => {
-    //setLocations(result.data)
     let data = result.data
     data = updateList(data)
     setLocations(data)
     setUnitedStatesData(data.filter(state => state.location === 'United States')[0])
+    setTopState(data.sort((a,b) => a.people_fully_vaccinated_per_hundred - b.people_fully_vaccinated_per_hundred)[data.length-2])
   }
 
   let filterData = (data, cityName) => {
@@ -91,6 +93,8 @@ function App() {
       <Header />
       <Container style={{ paddingTop: '1rem' }} maxWidth="md">
         <UnitedStatesCard stateData={unitedStatesData} />
+
+        <TopState stateData={topState}/>
 
         <FormControl variant='outlined' className={classes.selectForm}>
           <InputLabel ref={labelRef} id="stateSelect">Select State</InputLabel>
