@@ -1,0 +1,48 @@
+.unitedStatesCard h1 {
+  text-align: center;
+  font-size: 3rem;
+}
+
+.unitedStatesCard .content {
+  margin-bottom: 3rem;
+}
+
+.unitedStatesCard .content .row {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  width: 100%;
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+
+.unitedStatesCard .content .row p {
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.unitedStatesCard .content .row .subtitle {
+  font-size: 0.75rem;
+  font-weight: normal;
+  letter-spacing: normal;
+}
+
+.topState {
+  text-align: center;
+}
+
+.footerText {
+  text-decoration: none;
+  color: inherit;
+}
+
+.footerText:hover {
+  color: black;
+}
+/*# sourceMappingURL=App.css.map */

@@ -1,0 +1,38 @@
+.unitedStatesCard{
+    h1{
+        text-align: center;
+        font-size: 3rem;
+    }
+    .content{
+        .row{
+            display: inline-flex;
+            justify-content: center;
+            align-items: baseline;
+            width: 100%;
+            font-size: 1.7rem;
+            font-weight: bold;
+            p{
+                margin: 0;
+                letter-spacing: 1px;
+            }
+            .subtitle{
+                font-size: 0.75rem;
+                font-weight: normal;
+                letter-spacing: normal;
+            }
+        }
+        margin-bottom: 3rem;
+    }
+}
+
+.topState{
+    text-align: center;
+}
+
+.footerText{
+    text-decoration: none;
+    color: inherit;
+    &:hover{
+        color:black;
+    }
+}
