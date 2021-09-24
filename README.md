@@ -16,9 +16,32 @@ View live site [here](https://covid-vaccine-tracker-us.herokuapp.com/).
 
 1. Clone github repo
 2. Change directory to client.
+    ```
+    $ cd client
+    ```
 3. Run npm install.
+    ``` 
+    $ npm install
+    ```
 4. After install run npm start.
-5. Navigate to localhost:3000.
+    ```
+    $ npm start
+    ```
+5. Navigate to localhost:3000 in your web browser
+
+## Docker Install
+
+1. Build the container image. 
+    ```
+    $ docker build -t {name_of_image} .
+    ```
+
+2. Start a new container. 
+    ```
+    $ docker run -dp 3000:3000 --name covid_tracker_container {name_of_image}
+    ```
+
+3. Open browser to localhost:3000.
 
 ## Roadmap 
 
